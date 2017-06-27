@@ -13,8 +13,10 @@ namespace PictureLockManager
         public Form1()
         {
             InitializeComponent();
-            List<String> fileNames = System.IO.Directory.EnumerateFiles("D:\\DropboxItems\\Dropbox\\Photos\\Wallpapers").ToList();
-
+            listView1.View = View.Details;
+            listView1.GridLines = true;
+            
+            /*List<String> fileNames = System.IO.Directory.EnumerateFiles("D:\\DropboxItems\\Dropbox\\Photos\\Wallpapers").ToList();
             PictureLockList imgList = new PictureLockList()
             {
                 PictureLockItems = new List<PictureLockList.PictureLockListItem>()
@@ -35,12 +37,26 @@ namespace PictureLockManager
             {
                 DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(PictureLockList));
                 js.WriteObject(fs, imgList);
-            }
+            }*/
 
             //Random random = new Random();
             //int index = random.Next(0, fileNames.Count);
             //pictureBox1.BackgroundImage = Image.FromFile(fileNames[index]);
             //image.Source = new BitmapImage(new Uri(fileNames[index]));
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                tbFolderPath.Text = folderBrowserDialog1.SelectedPath;
+                List<String> fileNames = System.IO.Directory.EnumerateFiles(folderBrowserDialog1.SelectedPath).ToList();
+                foreach (String filename in fileNames)
+                {
+                    ListViewItem item = new ListViewItem(new[] {filename, "blah" });
+                    listView1.Items.Add(item);
+                }
+            }
         }
     }
 }
