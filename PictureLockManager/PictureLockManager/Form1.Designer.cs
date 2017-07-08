@@ -40,9 +40,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 235);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 150);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(373, 168);
+            this.pictureBox1.Size = new System.Drawing.Size(760, 399);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -73,6 +73,7 @@
             this.listView1.Size = new System.Drawing.Size(760, 97);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.evtShowImage);
             // 
             // columnPath
             // 

@@ -58,5 +58,23 @@ namespace PictureLockManager
                 }
             }
         }
+
+        private void evtShowImage(object sender, EventArgs e)
+        {
+            if(listView1.SelectedItems.Count >= 1)
+            {
+                // we should try to dispose old picture: https://stackoverflow.com/questions/39439942/dispose-of-a-picturebox-image-without-losing-the-picturebox
+                if (pictureBox1.Image != null)
+                {
+                    System.Drawing.Image oldImage = pictureBox1.Image;
+                    oldImage.Dispose();
+                }
+
+                pictureBox1.Image = null;
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox1.ImageLocation = listView1.SelectedItems[0].Text;
+                pictureBox1.Show();
+            }
+        }
     }
 }
