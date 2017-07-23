@@ -33,16 +33,19 @@
             this.btnBrowse = new System.Windows.Forms.Button();
             this.tbFolderPath = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.columnPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnPicture = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnPassphraseSet = new System.Windows.Forms.Button();
+            this.tbPassphrase = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(12, 150);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(760, 399);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -54,7 +57,7 @@
             this.btnBrowse.TabIndex = 1;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            this.btnBrowse.Click += new System.EventHandler(this.BtnBrowse_Click);
             // 
             // tbFolderPath
             // 
@@ -65,29 +68,37 @@
             // 
             // listView1
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnPath,
-            this.columnPicture});
             this.listView1.Location = new System.Drawing.Point(12, 47);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(760, 97);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.evtShowImage);
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.EvtShowImage);
             // 
-            // columnPath
+            // btnPassphraseSet
             // 
-            this.columnPath.Text = "Path";
+            this.btnPassphraseSet.Location = new System.Drawing.Point(12, 557);
+            this.btnPassphraseSet.Name = "btnPassphraseSet";
+            this.btnPassphraseSet.Size = new System.Drawing.Size(140, 26);
+            this.btnPassphraseSet.TabIndex = 4;
+            this.btnPassphraseSet.Text = "Set passphrase";
+            this.btnPassphraseSet.UseVisualStyleBackColor = true;
+            this.btnPassphraseSet.Click += new System.EventHandler(this.btnPassphraseSet_Click);
             // 
-            // columnPicture
+            // tbPassphrase
             // 
-            this.columnPicture.Text = "Picture";
+            this.tbPassphrase.Location = new System.Drawing.Point(158, 561);
+            this.tbPassphrase.Name = "tbPassphrase";
+            this.tbPassphrase.Size = new System.Drawing.Size(225, 20);
+            this.tbPassphrase.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 613);
+            this.Controls.Add(this.tbPassphrase);
+            this.Controls.Add(this.btnPassphraseSet);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.tbFolderPath);
             this.Controls.Add(this.btnBrowse);
@@ -107,8 +118,8 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.TextBox tbFolderPath;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnPath;
-        private System.Windows.Forms.ColumnHeader columnPicture;
+        private System.Windows.Forms.Button btnPassphraseSet;
+        private System.Windows.Forms.TextBox tbPassphrase;
     }
 }
 

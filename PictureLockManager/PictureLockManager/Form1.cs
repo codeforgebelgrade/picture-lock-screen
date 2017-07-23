@@ -14,7 +14,9 @@ namespace PictureLockManager
         {
             InitializeComponent();
             listView1.View = View.Details;
-            listView1.GridLines = true;
+            listView1.Columns.Add("C1");
+            listView1.Columns.Add("C2");
+            listView1.GridLines = true; ;
             
             /*List<String> fileNames = System.IO.Directory.EnumerateFiles("D:\\DropboxItems\\Dropbox\\Photos\\Wallpapers").ToList();
             PictureLockList imgList = new PictureLockList()
@@ -45,12 +47,13 @@ namespace PictureLockManager
             //image.Source = new BitmapImage(new Uri(fileNames[index]));
         }
 
-        private void btnBrowse_Click(object sender, EventArgs e)
+        private void BtnBrowse_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 tbFolderPath.Text = folderBrowserDialog1.SelectedPath;
                 List<String> fileNames = System.IO.Directory.EnumerateFiles(folderBrowserDialog1.SelectedPath).ToList();
+                listView1.Items.Clear();
                 foreach (String filename in fileNames)
                 {
                     ListViewItem item = new ListViewItem(new[] {filename, "blah" });
@@ -59,7 +62,7 @@ namespace PictureLockManager
             }
         }
 
-        private void evtShowImage(object sender, EventArgs e)
+        private void EvtShowImage(object sender, EventArgs e)
         {
             if(listView1.SelectedItems.Count >= 1)
             {
@@ -71,10 +74,15 @@ namespace PictureLockManager
                 }
 
                 pictureBox1.Image = null;
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                 pictureBox1.ImageLocation = listView1.SelectedItems[0].Text;
                 pictureBox1.Show();
             }
+        }
+
+        private void btnPassphraseSet_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
