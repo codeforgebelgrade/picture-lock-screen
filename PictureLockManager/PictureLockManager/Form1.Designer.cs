@@ -83,7 +83,7 @@
             this.btnPassphraseSet.TabIndex = 4;
             this.btnPassphraseSet.Text = "Set passphrase";
             this.btnPassphraseSet.UseVisualStyleBackColor = true;
-            this.btnPassphraseSet.Click += new System.EventHandler(this.btnPassphraseSet_Click);
+            this.btnPassphraseSet.Click += new System.EventHandler(this.BtnPassphraseSet_Click);
             // 
             // tbPassphrase
             // 
