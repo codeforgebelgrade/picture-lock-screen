@@ -80,9 +80,17 @@ namespace PictureLockManager
             }
         }
 
-        private void btnPassphraseSet_Click(object sender, EventArgs e)
+        private void BtnPassphraseSet_Click(object sender, EventArgs e)
         {
-
+            if (!tbPassphrase.Text.Equals(string.Empty))
+            {
+                ListViewItem selectedItem = listView1.SelectedItems[0];
+                selectedItem.SubItems[1].Text = tbPassphrase.Text;
+            }
+            else
+            {
+                MessageBox.Show("Passphrase must not be empty", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
