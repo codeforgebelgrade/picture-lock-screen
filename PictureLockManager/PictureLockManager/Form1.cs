@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using Codeforge.PictureLockCommons;
 using System.Runtime.Serialization.Json;
 using System.IO;
-
 namespace PictureLockManager
 {
     public partial class Form1 : Form
@@ -118,7 +117,9 @@ namespace PictureLockManager
                     }
                 }
 
-                using (FileStream fs = new FileStream("images.json", FileMode.Create))
+                String settingsFilepath = System.Configuration.ConfigurationManager.AppSettings["jsonFilePath"];
+                
+                using (FileStream fs = new FileStream(settingsFilepath + "images.json", FileMode.Create))
                 {
                     DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(PictureLockList));
                     js.WriteObject(fs, imgList);
