@@ -14,7 +14,8 @@ namespace PictureLockScreen
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        private const string INCORRECT_ANSWER = "You answer is not correct!";
+        private const string NO_SETTINGS_FILE = "Settings file is missing!";
         private PictureLockListItem currentPicture = null;
 
         public MainWindow()
@@ -36,7 +37,7 @@ namespace PictureLockScreen
             } 
             catch (FileNotFoundException)
             {
-                MessageBox.Show("Settings file is missing!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(NO_SETTINGS_FILE, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.Close();
             }
             
@@ -56,7 +57,7 @@ namespace PictureLockScreen
             }
             else
             {
-                MessageBox.Show("You answer is not correct!", "Error!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(INCORRECT_ANSWER, "Error!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
     }
