@@ -23,11 +23,12 @@ namespace PictureLockScreen
 
             try
             {
+                
                 String settingsFilepath = System.Configuration.ConfigurationManager.AppSettings["jsonFilePath"];
                 var jsonSerializer = new DataContractJsonSerializer(typeof(PictureLockList));
-                object objResponse = jsonSerializer.ReadObject(File.OpenRead(settingsFilepath + "images.json"));
-                PictureLockList pictureLockList = objResponse as PictureLockList;
+                PictureLockList pictureLockList = jsonSerializer.ReadObject(File.OpenRead(settingsFilepath + "images.json")) as PictureLockList;
                 List<PictureLockListItem> pictureLockItems = pictureLockList.PictureLockItems;
+
                 Random random = new Random();
                 int index = random.Next(0, pictureLockItems.Count);
                 currentPicture = pictureLockItems[index];
