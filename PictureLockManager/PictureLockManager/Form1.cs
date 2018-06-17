@@ -29,7 +29,7 @@ namespace PictureLockManager
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 tbFolderPath.Text = folderBrowserDialog1.SelectedPath;
-                List<String> fileNames = System.IO.Directory.EnumerateFiles(folderBrowserDialog1.SelectedPath).ToList();
+                List<String> fileNames = Directory.EnumerateFiles(folderBrowserDialog1.SelectedPath).ToList();
                 listView1.Items.Clear();
                 foreach (String filename in fileNames)
                 {
